@@ -36,3 +36,5 @@ Parameters:
 Beside the events provided by the [pdf.js](https://github.com/mozilla/pdf.js/) library, you can also use events provided by EasyPDF:
 
 `firstLoad`: Only occur first time the pdf file is loaded and a page of it is rendered.
+
+`pageNumberChanged`: This event occur when the pdf page is changed

@@ -13,6 +13,10 @@ pdfContainerRemote.on('firstLoad', function() {
   console.log('remote pdf trigger on first load');
 });
 
+pdfContainerRemote.on('pageNumberChanged', function(new_page_number){
+  console.log("Page number changed to: " + new_page_number);
+});
+
 //------------------
 
 // set the container
