@@ -1,0 +1,24 @@
+{
+  "name": "easypdf",
+  "version": "1.0.0",
+  "description": "A simple library that use PDF.js for rendering pdf file on electron",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/electron test/electron.js"
+  },
+  "keywords": [
+    "PDF.js",
+    "EasyPDF",
+    "electron",
+    "pdf"
+  ],
+  "author": "Hung Nguyen <viethungax@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^1.8.3"
+  },
+  "dependencies": {
+    "file-type": "^7.6.0",
+    "read-chunk": "^2.1.0"
+  }
+}
