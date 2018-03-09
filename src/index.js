@@ -32,6 +32,16 @@ function bind(selector, event, callback) {
       });
       return;
     }
+    else if (event == 'pageNumberChanged') {
+      let current_page_number = iframe.contentDocument.getElementById('pageNumber').value;
+      iframe.contentDocument.addEventListener('pagechange', function (e) {
+        if (current_page_number != e.pageNumber) {
+          callback(e.pageNumber);
+          current_page_number = e.pageNumber;
+        }
+      });
+      return;
+    }
     iframe.contentDocument.addEventListener(event, callback);
   }
 }
