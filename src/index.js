@@ -1,6 +1,7 @@
 const path = require('path');
 const readChunk = require('read-chunk');
 const fileType = require('file-type');
+const handleEasyPDFEvent = require('./event');
 
 const PDFJS_PATH = path.resolve(__dirname, '..', 'pdfjs', 'web', 'viewer.html');
 
@@ -24,22 +25,7 @@ function renderTo(selector, pdf) {
 function bind(selector, event, callback) {
   let iframe = document.querySelector(`${selector} #easy-pdf-iframe`);
   iframe.onload = () => {
-    if (event == 'firstLoad'){ 
-      iframe.contentDocument.addEventListener('pagerendered', function pageRendered() {
-        callback();
-        // remove the current listener as we only need it to be fired once !
-        iframe.contentDocument.removeEventListener('pagerendered', pageRendered);
-      });
-      return;
-    }
-    else if (event == 'pageNumberChanged') {
-      let current_page_number = iframe.contentDocument.getElementById('pageNumber').value;
-      iframe.contentDocument.addEventListener('pagechange', function (e) {
-        if (current_page_number != e.pageNumber) {
-          callback(e.pageNumber);
-          current_page_number = e.pageNumber;
-        }
-      });
+    if (handleEasyPDFEvent(event, iframe.contentDocument, callback)) {
       return;
     }
     iframe.contentDocument.addEventListener(event, callback);

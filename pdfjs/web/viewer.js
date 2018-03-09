@@ -1655,7 +1655,6 @@ var PDFLinkService = (function () {
      */
     setHash: function PDFLinkService_setHash(hash) {
       if (hash.indexOf('=') >= 0) {
-        console.log(hash);
         var params = parseQueryString(hash);
         // borrowing syntax from "Parameters for Opening PDF Files"
         if ('nameddest' in params) {
@@ -6491,14 +6490,11 @@ var PDFViewerApplication = {
         return this.open(file, args);
       }.bind(this));
     }
-    
-    console.log(parameters);
 
     var parameters = Object.create(null);
     if (typeof file === 'string') { // URL
       this.setTitleUsingUrl(file);
       parameters.url = file;
-    console.log(parameters);
     } else if (file && 'byteLength' in file) { // ArrayBuffer
       parameters.data = file;
     } else if (file.url && file.originalUrl) {
@@ -6510,7 +6506,6 @@ var PDFViewerApplication = {
         parameters[prop] = args[prop];
       }
     }
-    console.log(parameters);
 
     var self = this;
     self.downloadComplete = false;  
@@ -7386,7 +7381,6 @@ function webViewerInitialized() {
   document.getElementById('download').addEventListener('click',
     SecondaryToolbar.downloadClick.bind(SecondaryToolbar));
 
-  console.log("7285", file);
   if (file && file.lastIndexOf('file:', 0) === 0) {
     // file:-scheme. Load the contents in the main thread because QtWebKit
     // cannot load file:-URLs in a Web Worker. file:-URLs are usually loaded
