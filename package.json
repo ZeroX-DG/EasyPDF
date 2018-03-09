@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "file-type": "^7.6.0",
+    "node-ensure": "0.0.0",
     "read-chunk": "^2.1.0"
   },
   "repository": "https://github.com/ZeroX-DG/EasyPDF"

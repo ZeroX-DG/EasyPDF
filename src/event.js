@@ -1,7 +1,8 @@
 function handleEasyPDFEvent(event, doc, callback) {
-  if (event == 'firstLoad'){ 
+  if (event == 'firstLoad'){
     doc.addEventListener('pagerendered', function pageRendered() {
       callback();
+      
       // remove the current listener as we only need it to be fired once !
       doc.removeEventListener('pagerendered', pageRendered);
     });
