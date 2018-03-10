@@ -1,22 +1,25 @@
 const handleEasyPDFEvent = require('./event');
-const { shell }  = require('electron');
 
-function bind(selector, listeners) {
+
+function bind(selector, event, callback) {
   let iframe = document.querySelector(`${selector} #easy-pdf-iframe`);
-  iframe.onload = () => {
-    // open external links in the browser
-    let externalLink = iframe.contentDocument.getElementById('externalLink')
-    if (externalLink) {
-      externalLink.onchange = () => shell.openExternal(externalLink.value)
-    }
-
-    for(let event in listeners) {
-      let callback = listeners[event];
+  let old_onload = iframe.onload;
+  if (typeof iframe.onload != 'function') {
+    iframe.onload = () => {
       if (!handleEasyPDFEvent(event, iframe.contentDocument, callback)) {
         iframe.contentDocument.addEventListener(event, callback);
       }
     }
-    
+  }
+  else {
+    iframe.onload = () => {
+      if (old_onload) {
+        old_onload();
+      }
+      if (!handleEasyPDFEvent(event, iframe.contentDocument, callback)) {
+        iframe.contentDocument.addEventListener(event, callback);
+      }
+    }
   }
 }
 

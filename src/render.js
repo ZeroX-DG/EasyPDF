@@ -1,4 +1,5 @@
 const path = require('path');
+const { shell }  = require('electron');
 
 function render(selector, pdf) {
   const PDFJS_PATH = path.resolve(__dirname, '..', 'pdfjs', 'web', 'viewer.html');
@@ -9,6 +10,13 @@ function render(selector, pdf) {
     iframe.width = '100%';
     iframe.height = '100%';
     iframe.id = 'easy-pdf-iframe';
+
+    iframe.onload = () => {
+      let externalLink = iframe.contentDocument.getElementById('externalLink')
+      if (externalLink) {
+        externalLink.onchange = () => shell.openExternal(externalLink.value)
+      }
+    }
 
     container.appendChild(iframe);
   }

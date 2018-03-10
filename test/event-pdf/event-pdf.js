@@ -12,10 +12,14 @@ pdfContainerRemote.render();
 // add the event
 pdfContainerRemote.on('firstLoad', function() {
   console.log("Loaded !");
+  
 });
 
 pdfContainerRemote.on('pageNumberChanged', function(new_page) {
   console.log("Current page number: " + new_page);
 });
 
-pdfContainerRemote.listen();
+// this event is not one of the EasyPDF event
+pdfContainerRemote.on('mousemove', function(e) {
+  console.log(`mouse position: (${e.pageX}, ${e.pageY})`);
+});
