@@ -18,3 +18,8 @@ pdfContainerRemote.on('firstLoad', function() {
 pdfContainerRemote.on('pageNumberChanged', function(new_page) {
   console.log("Current page number: " + new_page);
 });
+
+// this event is not one of the EasyPDF event
+pdfContainerRemote.on('mousemove', function(e) {
+  console.log(`mouse position: (${e.pageX}, ${e.pageY})`);
+});
