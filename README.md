@@ -55,13 +55,15 @@ Finally, load the html file to electron browser window and here is what we get
 
 ![result](https://media.giphy.com/media/TITLlBd68poAr5SOg4/giphy.gif)
 
+Want more example? checkout the [test folder](/test)
+
 ## Contributing
 To getting started, you can fork and clone this repo. After that run the command bellow to install all dependencies
 ```
 npm install
 ``` 
 
-Then edit your code in the `src` folder and send me a PR :)
+Then edit your code in the [src folder](/src) and send me a PR :)
 
 ## Contact
 If you have any questions, you can find me at:

@@ -1,14 +1,13 @@
 # EasyPDF api
 
 ```
-EasyPDF
- - setContainer
-  - render
-  - on
-  - listen
- - getThumbnail
-  - save
-  - render
+EasyPDF(file_path) : Object
+ - setContainer(selector) : Object
+    - render()
+    - on(event, callback)
+ - getThumbnail() : Object
+    - save(thumbnail_path(.jpg))
+    - render(selector)
 ```
 
 `function EasyPDF`
