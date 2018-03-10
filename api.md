@@ -57,11 +57,12 @@ Parameters:
 <br>
 Returns:
 - thumbnail (Object): This object contains function to apply on the thumbnail:
-  - save:
+
+  - `function save`:
     <br>
     Parameters:
     - thumbnail_path (String): Path to save the thumbnail to
-  - render:
+  - `function render`:
     <br>
     Parameters:
     - img_tag_selector (String): The selector to the img tag to render the thumbnail
