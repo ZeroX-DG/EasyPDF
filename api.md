@@ -44,10 +44,6 @@ Parameters:
 - callback (function): the callback function that will be invoke if the event occured.
 <br>
 
-`function listen`
-<br>
-Remember after using the `on` function, you will need to call the listen function for EasyPDF to begin listening to all the events.
-<br>
 `function getThumbnail`
 <br>
 This function is used to get the thumbnail of the pdf (or the first page) then you can save it to disk or render it to a specific img tag by specifying its selector
@@ -58,14 +54,16 @@ Parameters:
 Returns:
 - thumbnail (Object): This object contains function to apply on the thumbnail:
 
-  - `function save`:
-    <br>
-    Parameters:
-    - thumbnail_path (String): Path to save the thumbnail to
-  - `function render`:
-    <br>
-    Parameters:
-    - img_tag_selector (String): The selector to the img tag to render the thumbnail
+`function save`:
+<br>
+Parameters:
+- thumbnail_path (String): Path to save the thumbnail to
+<br>
+
+`function render`:
+<br>
+Parameters:
+- img_tag_selector (String): The selector to the img tag to render the thumbnail
 
 ## EasyPDF events:
 Beside the events provided by the [pdf.js](https://github.com/mozilla/pdf.js/) library, you can also use events provided by EasyPDF:

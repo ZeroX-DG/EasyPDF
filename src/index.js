@@ -10,8 +10,6 @@ function EasyPDF(pdf) {
     throw new Error("The file specified is not a valid pdf file");
     return;
   }
-  
-  let listeners = {};
 
   return {
     // force user to set container first
@@ -22,10 +20,7 @@ function EasyPDF(pdf) {
           render(selector, pdf);
         },
         on: (event, callback) => {
-          listeners[event] = callback;
-        },
-        listen: () => {
-          bind(selector, listeners);
+          bind(selector, event, callback);
         }
       }
     },

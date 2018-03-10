@@ -12,10 +12,9 @@ pdfContainerRemote.render();
 // add the event
 pdfContainerRemote.on('firstLoad', function() {
   console.log("Loaded !");
+  
 });
 
 pdfContainerRemote.on('pageNumberChanged', function(new_page) {
   console.log("Current page number: " + new_page);
 });
-
-pdfContainerRemote.listen();
