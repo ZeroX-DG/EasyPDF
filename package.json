@@ -4,7 +4,7 @@
   "description": "A simple library that use PDF.js for rendering pdf file on electron",
   "main": "src/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/electron test/electron.js"
+    "test": "./node_modules/.bin/electron test/local-remote-pdf/local-remote-pdf-electron.js"
   },
   "keywords": [
     "PDF.js",
@@ -15,7 +15,7 @@
   "author": "Hung Nguyen <viethungax@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^1.8.3"
+    "electron": "^3.0.13"
   },
   "dependencies": {
     "file-type": "^7.6.0",
