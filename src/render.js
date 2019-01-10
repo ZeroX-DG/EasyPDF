@@ -12,12 +12,16 @@ function render(selector, pdf) {
     iframe.id = 'easy-pdf-iframe';
 
     iframe.onload = () => {
-      let externalLink = iframe.contentDocument.getElementById('externalLink')
+      let externalLink = iframe.contentDocument.getElementById('externalLink');
       if (externalLink) {
-        externalLink.onchange = () => shell.openExternal(externalLink.value)
+        externalLink.onchange = () => shell.openExternal(externalLink.value);
       }
-    }
+    };
 
+    let oldIframe = container.querySelector('#easy-pdf-iframe');
+    if (oldIframe) {
+      oldIframe.remove();
+    }
     container.appendChild(iframe);
   }
   else {
